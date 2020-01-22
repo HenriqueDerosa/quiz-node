@@ -15,6 +15,7 @@ routes.get('/', async (req, res) => {
 
 /** Question and answer */
 routes.get('/questions', QuestionController.index)
+routes.post('/questions', QuestionController.store)
 
 /** User authentication */
 routes.post('/users', UserController.store)

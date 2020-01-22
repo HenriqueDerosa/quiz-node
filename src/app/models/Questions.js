@@ -13,6 +13,12 @@ class Questions extends Model {
 
     return this
   }
+
+  static associate(models) {
+    this.hasMany(models.Options, {
+      as: 'options',
+    })
+  }
 }
 
 export default Questions
