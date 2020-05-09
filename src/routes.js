@@ -24,6 +24,8 @@ routes.use(authMiddleware)
 routes.get('/user/:id', user.index)
 
 // Questions
-routes.delete('/question/:id', QuestionController.delete)
+routes.get('/questions', QuestionController.index)
+routes.post('/questions', QuestionController.store)
+routes.delete('/questions/:id', QuestionController.delete)
 
 export default routes

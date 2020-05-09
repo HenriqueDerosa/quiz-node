@@ -4,7 +4,7 @@ class Choice extends Model {
   static init(sequelize) {
     super.init(
       {
-        text: Sequelize.STRING,
+        title: Sequelize.STRING,
       },
       {
         sequelize,
@@ -12,6 +12,13 @@ class Choice extends Model {
     )
 
     return this
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Question, {
+      foreignKey: 'question_id',
+      as: 'question',
+    })
   }
 }
 

@@ -4,12 +4,8 @@ class Question extends Model {
   static init(sequelize) {
     super.init(
       {
-        question: {
+        title: {
           type: Sequelize.STRING,
-          allowNull: false,
-        },
-        active: {
-          type: Sequelize.BOOLEAN,
           allowNull: false,
         },
       },
@@ -19,13 +15,6 @@ class Question extends Model {
     )
 
     return this
-  }
-
-  static associate(models) {
-    this.belongsTo(models.Choice, {
-      foreignKey: 'choice_id',
-      as: 'choice',
-    })
   }
 }
 

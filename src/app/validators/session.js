@@ -10,7 +10,7 @@ const store = async (req, res, next) => {
     password: yup
       .string()
       .required()
-      .min(6),
+      .min(3),
   })
 
   try {
