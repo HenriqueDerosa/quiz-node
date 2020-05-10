@@ -1,13 +1,12 @@
 import { Op } from 'sequelize'
 import Question from '../models/Question'
-import Choice from '../models/Choice'
 
 class QuestionController {
   async store(req, res) {
     try {
       const { title } = req.body
 
-      const question = await Question.create({ title })
+      const question = await Question.create({ title: 'test' })
 
       return res.status(200).json(question)
     } catch (err) {
