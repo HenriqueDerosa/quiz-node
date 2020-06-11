@@ -4,10 +4,7 @@ class Question extends Model {
   static init(sequelize) {
     super.init(
       {
-        title: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
+        title: Sequelize.STRING,
       },
       {
         sequelize,

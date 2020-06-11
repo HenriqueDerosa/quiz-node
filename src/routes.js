@@ -20,7 +20,7 @@ routes.post('/user', validateUser.store, user.store)
 // Files
 routes.post('/files', upload.single('file'), FileController.store)
 
-routes.use(authMiddleware)
+// routes.use(authMiddleware)
 routes.get('/user/:id', user.index)
 
 // Questions

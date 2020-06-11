@@ -1,12 +1,20 @@
 import { Op } from 'sequelize'
 import Question from '../models/Question'
+import Choice from '../models/Choice'
 
 class QuestionController {
   async store(req, res) {
     try {
-      const { title } = req.body
+      const { title, choices } = req.body
 
-      const question = await Question.create({ title: 'test' })
+      const question = await Question.create({ title })
+
+      await Choice.bulkCreate([
+        ...choices.map(item => ({
+          title: item,
+          question_id: question.id,
+        })),
+      ])
 
       return res.status(200).json(question)
     } catch (err) {
